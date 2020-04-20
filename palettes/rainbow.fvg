@@ -1,0 +1,9 @@
+<palette red="0" green="0" blue="0">
+    <color pos="0" red="255" green="0" blue="0" />
+    <color pos="42" red="255" green="255" blue="0" />
+    <color pos="84" red="0" green="255" blue="0" />
+    <color pos="126" red="0" green="255" blue="255" />
+    <color pos="168" red="0" green="0" blue="255" />
+    <color pos="210" red="255" green="0" blue="254" />
+    <color pos="255" red="255" green="0" blue="0" />
+</palette>

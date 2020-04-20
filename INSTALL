@@ -1,0 +1,77 @@
+
+---------------------------------------------------------------------
+Installation of the binary version for Windows:
+---------------------------------------------------------------------
+1) Execute the setup file and follow the instructions.
+2) Everything should be ready to use.
+
+---------------------------------------------------------------------
+Installation of the binary version for Linux
+---------------------------------------------------------------------
+The binary version for Linux has been compiled with Allegro and
+lib-gcc statically. So you may need to install other libraries like
+QT. Check the "General steps for preparing a manual compilation"
+section which libraries may be needed.
+
+1) The application should be ready to use. You can place the folder
+   everywhere you want to.
+
+---------------------------------------------------------------------
+General steps for preparing a manual compilation:
+---------------------------------------------------------------------
+1) Install Allegro (http://alleg.sourceforge.net). Compilation should
+   work with version 4.1.18 (WIP) or newer (I've used 4.2.0 beta 3).
+2) Install AllegroFont (http://nekros.freeshell.org/delirium/alfont.php).
+3) Install JPGalleg (http://www.ecplusplus.com/index.php?page=projects&pid=1)
+4) Install gettext (http://www.gnu.org/software/gettext)
+
+5) If you are using Dev-C++ (under Windows), open FractalViewer.dev
+   and just click compile.
+
+6) If you are using Linux, install QT (http://www.trolltech.com)
+
+7) Compile main.cpp, tinyxml/tinystr.cpp, tinyxml/tinyxml.cpp,
+   tinyxml/tinyxmlerror.cpp, tinyxml/tinyxmlparser.cpp and link
+   these files.
+   For compilation you have to add these include directories (if
+   you aren't executing you're compiler in the same directory in which
+   you have extracted all the files, you have to alter the relative paths):
+   ./include
+   ./tinyxml
+   QT include directoy (only under Linux, mine was /usr/lib/qt3/include/)
+   For compilation you have to define TIXML_USE_STL.
+   For linking you have to tell the linker to use the libraries you
+   installed in steps 1 til 5 and 7 til 8 and all libraries which are
+   needed by these.
+
+   For g++ under windows the parameters for the libraries looked
+   like this at my PC (order does matter!):
+   -lintl -lalfont -lalleg -ljpgal -lkernel32 -luser32 -lgdi32
+   -lcomdlg32 -lole32 -ldinput -lddraw -ldxguid -lwinmm -ldsound
+
+   ...and for Linux like this:
+   -L/usr/lib/qt3/lib/ -L/usr/X11R6/lib/ -lqt-mt -lXext -lX11 -lm -lalfont
+   `allegro-config --libs` -ljpgal
+
+   As example the whole command I used under Linux:
+   g++ -Wall -ansi -o fractalviewer main.cpp tinyxml/tinystr.cpp
+   tinyxml/tinyxml.cpp tinyxml/tinyxmlerror.cpp tinyxml/tinyxmlparser.cpp
+   -DTIXML_USE_STL -I./include -I./tinyxml -I/usr/lib/qt3/include/
+   -L/usr/lib/qt3/lib/ -L/usr/X11R6/lib/ -lqt-mt -lXext -lX11 -lm -lalfont
+   `allegro-config --libs` -ljpgal
+
+----------------------------------------------------------------------
+After compilation
+----------------------------------------------------------------------
+1) Copy the following files to the folder you want FractalViewer to
+   install to:
+   fractalviewer (or whatever you named the executable file)
+   *.tga
+   vera.ttf
+   The folder tutorial
+   The folder locale
+
+   The folder palettes contains some sample gradients for coloring.
+   You can place this folder where ever you want (or delete it, if you
+   want so).
+   

@@ -1,0 +1,45 @@
+# Project: FractalViewer
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = FractalViewer_private.res
+OBJ  = main.o tinyxml/tinystr.o tinyxml/tinyxml.o tinyxml/tinyxmlerror.o tinyxml/tinyxmlparser.o $(RES)
+LINKOBJ  = main.o tinyxml/tinystr.o tinyxml/tinyxml.o tinyxml/tinyxmlerror.o tinyxml/tinyxmlparser.o $(RES)
+LIBS =  -L"E:/Programme/MinGW/lib" -mwindows -lintl -lalfont_s -lalleg_s -ljpgal -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lole32 -ldinput -lddraw -ldxguid -lwinmm -ldsound  
+INCS =  -I"E:/Programme/MinGW/include" 
+CXXINCS =  -I"E:/Programme/MinGW/include/c++"  -I"E:/Programme/MinGW/include" 
+BIN  = FractalViewer.exe
+CXXFLAGS = $(CXXINCS) -DALLEGRO_STATICLINK -DTIXML_USE_STL -ansi -Wall -I./include -I./tinyxml  
+CFLAGS = $(INCS) -DALLEGRO_STATICLINK -DTIXML_USE_STL -ansi -Wall -I./include -I./tinyxml  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before FractalViewer.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "FractalViewer.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+tinyxml/tinystr.o: tinyxml/tinystr.cpp
+	$(CPP) -c tinyxml/tinystr.cpp -o tinyxml/tinystr.o $(CXXFLAGS)
+
+tinyxml/tinyxml.o: tinyxml/tinyxml.cpp
+	$(CPP) -c tinyxml/tinyxml.cpp -o tinyxml/tinyxml.o $(CXXFLAGS)
+
+tinyxml/tinyxmlerror.o: tinyxml/tinyxmlerror.cpp
+	$(CPP) -c tinyxml/tinyxmlerror.cpp -o tinyxml/tinyxmlerror.o $(CXXFLAGS)
+
+tinyxml/tinyxmlparser.o: tinyxml/tinyxmlparser.cpp
+	$(CPP) -c tinyxml/tinyxmlparser.cpp -o tinyxml/tinyxmlparser.o $(CXXFLAGS)
+
+FractalViewer_private.res: FractalViewer_private.rc 
+	$(WINDRES) -i FractalViewer_private.rc --input-format=rc -o FractalViewer_private.res -O coff 

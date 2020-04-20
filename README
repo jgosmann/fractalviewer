@@ -1,0 +1,43 @@
+FractalViewer 2.0 Readme
+
+For installation instructions see INSTALL.
+
+---------------------------------------------------------------------
+0) Table of contents:
+---------------------------------------------------------------------
+
+0) Table of contents
+1) Program start under Linux
+2) Usage of the gradient creator
+3) Known bugs
+
+
+---------------------------------------------------------------------
+1) Program start under Linux
+---------------------------------------------------------------------
+You shouldn't start the program with Konqueror, because Konqueror
+sets the working directory to a wrong directory. Instead start the
+console, change to the directory in which you have installed
+FractalViewer and type "./fractalviewer" (without quots).
+
+---------------------------------------------------------------------
+2) Usage of the gradient creator
+---------------------------------------------------------------------
+You can change the color of a slider with a right click on it. With
+delete-key (not the one above return) you remove the selected slider
+(the one with the white border). The cursor should be over the
+preview of the gradient when you are pressing delete.
+I think there is no need to explain more. The rest works very
+similiar to every other GUI.
+
+---------------------------------------------------------------------
+3) Known bugs:
+---------------------------------------------------------------------
+
+If you change the filter in the open/save file dialog, you won't see
+any files anymore until you change the folder. This bug seems to
+occur only under Windows XP.
+
+The program does not work under Windows 2000.
+
+

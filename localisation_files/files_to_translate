@@ -1,0 +1,8 @@
+../main.cpp
+../prgm_include/gui_alert.h
+../prgm_include/gui_credits.h
+../prgm_include/gui_main.h
+../prgm_include/gui_gradient.h
+../prgm_include/gui_colsel.h
+../prgm_include/gui_values.h
+../prgm_include/xml_gradient.h
